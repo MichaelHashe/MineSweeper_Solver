@@ -24,6 +24,10 @@ wid = int(wid.split('\n')[-2].split(" ")[-1], base=16)
 # Resize window, for consistency. Assume expert difficulty. Size magic numbers.
 subprocess.run(['xdotool', 'windowsize', str(wid), str(1164), str(617)])
 
+# Navigate to expert level
+subprocess.run("xdotool mousemove --window {} 400 400".format(wid).split())
+subprocess.run("xdotool click 1".split())
+subprocess.run("xdotool mousemove --window {} 0 0".format(wid).split())
 # TODO : main loop
 # Save window as png
 board_image = tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".png")
